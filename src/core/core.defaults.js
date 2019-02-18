@@ -21,4 +21,15 @@ defaults._set('global', {
 	showLines: true
 });
 
-module.exports = defaults;
+module.exports = function() {
+
+// Occupy the global variable of Chart, and create a simple base class
+var Chart = function(item, config) {
+    this.construct(item, config);
+    return this;
+};
+
+Chart.Chart = Chart;
+
+return Chart;
+};`
